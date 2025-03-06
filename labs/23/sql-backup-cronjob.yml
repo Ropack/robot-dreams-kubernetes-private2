@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sql-backup-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sql-backup-worker
+            image: mcr.microsoft.com/mssql-tools
+            imagePullPolicy: IfNotPresent
+            command:
+              [
+                "/opt/mssql-tools/bin/sqlcmd",
+                "-S",
+                "mssql-service",
+                "-d",
+                "master",
+                "-U",
+                "sa",
+                "-P",
+                "$(SA_PASSWORD)",
+                "-Q",
+                "DECLARE @name NVARCHAR(256)
+                DECLARE @path NVARCHAR(512)
+                DECLARE @date NVARCHAR(20)
+                SELECT @date = CONVERT(NVARCHAR(20),GETDATE(),112) 
+                
+                DECLARE db_cursor CURSOR READ_ONLY FOR  
+                SELECT name FROM master.sys.databases 
+                  WHERE name NOT IN ('master','model','msdb','tempdb') 
+                    AND state = 0 AND is_in_standby = 0
+                OPEN db_cursor
+                FETCH NEXT FROM db_cursor INTO @name   
+                WHILE @@FETCH_STATUS = 0 BEGIN
+                  SET @path = '/var/opt/backups/' + @name + '-' + @date + '.bak'
+                  BACKUP DATABASE @name TO DISK = @path   
+                  FETCH NEXT FROM db_cursor INTO @name   
+                END 
+                CLOSE db_cursor   
+                DEALLOCATE db_cursor"
+              ]
+            env:
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mssql
+                  key: SA_PASSWORD
+          restartPolicy: OnFailure
