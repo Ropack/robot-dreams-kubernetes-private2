@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NorthwindStore.Tests.IntegrationTests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35617.110 d17.13
+VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.App", "NorthwindStore.App\NorthwindStore.App.csproj", "{47561085-8C3A-4ABF-9DAB-0FDDF5FE619D}"
 EndProject
@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.DAL", "North
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.BL", "NorthwindStore.BL\NorthwindStore.BL.csproj", "{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6297C5EE-07FB-45FB-9B1D-76C0ECDE006C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindStore.Tests.UnitTests", "NorthwindStore.Tests.UnitTests\NorthwindStore.Tests.UnitTests.csproj", "{7FED2E92-6E4A-4D19-8DEA-AB5A587016CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindStore.Tests.IntegrationTests", "NorthwindStore.Tests.IntegrationTests\NorthwindStore.Tests.IntegrationTests.csproj", "{3BCB3C39-1AD7-4C97-B6B9-EA7315DF8054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +33,23 @@ Global
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6297C5EE-07FB-45FB-9B1D-76C0ECDE006C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6297C5EE-07FB-45FB-9B1D-76C0ECDE006C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6297C5EE-07FB-45FB-9B1D-76C0ECDE006C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6297C5EE-07FB-45FB-9B1D-76C0ECDE006C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FED2E92-6E4A-4D19-8DEA-AB5A587016CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FED2E92-6E4A-4D19-8DEA-AB5A587016CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FED2E92-6E4A-4D19-8DEA-AB5A587016CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FED2E92-6E4A-4D19-8DEA-AB5A587016CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCB3C39-1AD7-4C97-B6B9-EA7315DF8054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCB3C39-1AD7-4C97-B6B9-EA7315DF8054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCB3C39-1AD7-4C97-B6B9-EA7315DF8054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCB3C39-1AD7-4C97-B6B9-EA7315DF8054}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD6883C0-F4AD-471C-B690-9725D40EB42C}
 	EndGlobalSection
 EndGlobal

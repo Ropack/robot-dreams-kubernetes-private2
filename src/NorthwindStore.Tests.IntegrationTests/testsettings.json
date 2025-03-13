@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DB": "Data Source=tcp:127.0.0.1,51433; Initial Catalog=Northwind; User ID=sa; Password=DevPass_1"
+  } 
+}

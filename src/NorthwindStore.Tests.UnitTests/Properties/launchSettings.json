@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NorthwindStore.Tests.UnitTests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
