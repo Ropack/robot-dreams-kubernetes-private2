@@ -91,3 +91,9 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+      
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'ci/app'
+    ArtifactName: 'app'
+    publishLocation: 'Container'
