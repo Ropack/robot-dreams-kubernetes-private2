@@ -15,6 +15,7 @@ steps:
     containerregistrytype: 'Azure Container Registry'
     dockerComposeFile: 'src/docker-compose.yml'
     additionalDockerComposeFiles: '../ci/docker-compose.ci.yml'
+    projectName: 'northwindstore'
     action: 'Run a Docker Compose command'
-    dockerComposeCommand: '-p northwindstore up'
+    dockerComposeCommand: 'up'
     arguments: '--build --force-recreate -d'
