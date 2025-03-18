@@ -31,7 +31,7 @@ steps:
   displayName: Run Unit tests
   inputs:
     command: 'run'
-    arguments: '--rm -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults northwindstoretestsunittests:$(Build.BuildId)'
+    arguments: '--rm --pull never -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults northwindstoretestsunittests:$(Build.BuildId)'
 
 
 - task: Docker@2
@@ -45,4 +45,4 @@ steps:
   displayName: Run Integration tests
   inputs:
     command: 'run'
-    arguments: '--rm -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults -e "ConnectionStrings__DB=Data Source=tcp:northwindstore.db,1433; Initial Catalog=Northwind; User ID=sa; Password=DevPass_1" --network northwindstore-dev  northwindstoretestsintegrationtests:$(Build.BuildId)'
+    arguments: '--rm --pull never -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults -e "ConnectionStrings__DB=Data Source=tcp:northwindstore.db,1433; Initial Catalog=Northwind; User ID=sa; Password=DevPass_1" --network northwindstore-dev  northwindstoretestsintegrationtests:$(Build.BuildId)'
