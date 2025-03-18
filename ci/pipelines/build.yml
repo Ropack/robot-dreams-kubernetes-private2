@@ -10,10 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: DockerCompose@1
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    dockerComposeFile: '**/docker-compose.yml'
+    additionalDockerComposeFiles: '../ci/docker-compose.ci.ym'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'up'
+    arguments: '--build --force-recreate -d'
