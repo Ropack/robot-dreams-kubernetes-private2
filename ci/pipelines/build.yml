@@ -17,4 +17,4 @@ steps:
     additionalDockerComposeFiles: '../ci/docker-compose.ci.yml'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'up'
-    arguments: '--build --force-recreate -d'
+    arguments: '--build --force-recreate -d -p northwindstore'
