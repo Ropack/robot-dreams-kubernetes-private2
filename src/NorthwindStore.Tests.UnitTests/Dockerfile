@@ -14,4 +14,4 @@ WORKDIR "/src/NorthwindStore.Tests.UnitTests"
 
 RUN dotnet build "./NorthwindStore.Tests.UnitTests.csproj"
 
-ENTRYPOINT ["dotnet", "test", "NorthwindStore.Tests.UnitTests.csproj", "--logger trx;LogFileName=/src/testresults/unittests-results.trx"]
+ENTRYPOINT ["dotnet", "test", "NorthwindStore.Tests.UnitTests.csproj", "--logger", "trx;LogFileName=/src/testresults/unittests-results.trx"]
