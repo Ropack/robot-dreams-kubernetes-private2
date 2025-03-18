@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  registryName: 'robotdreamskubernetes.azurecr.io'
+
 steps:
 - task: DockerCompose@1
   inputs:
