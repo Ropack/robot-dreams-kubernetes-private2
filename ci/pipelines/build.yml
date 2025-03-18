@@ -26,8 +26,8 @@ steps:
     command: 'build'
     Dockerfile: 'src/NorthwindStore.Tests.UnitTests/Dockerfile'
     buildContext: 'src'
-    tags: |
-      $(Build.BuildId)
+    tags: '$(Build.BuildId)'
+    arguments: '-t northwindstoretestsunittests:$(Build.BuildId)'
 
 - task: CmdLine@2
   inputs:
@@ -61,3 +61,13 @@ steps:
     testResultsFiles: '*.trx'
     searchFolder: '$(Build.ArtifactStagingDirectory)/testresults'
     failTaskOnFailedTests: true
+
+- task: DockerCompose@1
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    dockerComposeFile: 'src/docker-compose.yml'
+    additionalDockerComposeFiles: '../ci/docker-compose.ci.yml'
+    projectName: 'northwindstore'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'down'
+  condition: always()
