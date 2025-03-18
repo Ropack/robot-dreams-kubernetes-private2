@@ -32,6 +32,7 @@ steps:
   inputs:
     command: 'run'
     arguments: '--rm --pull never -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults northwindstoretestsunittests:$(Build.BuildId)'
+  continueOnError: true
 
 
 - task: Docker@2
@@ -46,3 +47,11 @@ steps:
   inputs:
     command: 'run'
     arguments: '--rm --pull never -v $(Build.ArtifactStagingDirectory)/testresults:/src/testresults -e "ConnectionStrings__DB=Data Source=tcp:northwindstore.db,1433; Initial Catalog=Northwind; User ID=sa; Password=DevPass_1" --network northwindstore-dev  northwindstoretestsintegrationtests:$(Build.BuildId)'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '*.trx'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/testresults'
+    failTaskOnFailedTests: true
