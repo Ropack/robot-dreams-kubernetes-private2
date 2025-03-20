@@ -27,6 +27,11 @@ env:
     secretKeyRef:
       name: app
       key: ConnectionStrings__DB
+- name: ApplicationInsights__InstrumentationKey
+  valueFrom:
+    secretKeyRef:
+      name: app
+      key: ApplicationInsights__InstrumentationKey
 
 volumeMounts:
 - mountPath: "/app/wwwroot/images"
