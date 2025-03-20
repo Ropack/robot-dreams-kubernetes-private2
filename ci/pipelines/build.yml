@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  registryName: 'robotdreamskubernetes.azurecr.io'
+
 steps:
 - task: DockerCompose@1
   inputs:
@@ -91,3 +94,9 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+      
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'ci/app'
+    ArtifactName: 'app'
+    publishLocation: 'Container'
