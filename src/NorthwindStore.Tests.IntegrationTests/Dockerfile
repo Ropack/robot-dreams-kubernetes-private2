@@ -15,4 +15,4 @@ COPY . .
 WORKDIR "/src/NorthwindStore.Tests.IntegrationTests"
 RUN dotnet build "./NorthwindStore.Tests.IntegrationTests.csproj"
 
-ENTRYPOINT ["dotnet", "test", "NorthwindStore.Tests.IntegrationTests.csproj"]
+ENTRYPOINT ["dotnet", "test", "NorthwindStore.Tests.IntegrationTests.csproj", "--logger", "trx;LogFileName=/src/testresults/integrationtests-results.trx"]
